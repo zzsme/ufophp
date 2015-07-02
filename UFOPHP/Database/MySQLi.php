@@ -15,6 +15,10 @@ class MySQLi implements IDatabase {
         return mysqli_query($this->conn, $sql);
     }
 
+    function execute($sql) {
+        return $this->conn->exec($sql);
+    }
+
     function close() {
         mysqli_close($this->conn);
     }

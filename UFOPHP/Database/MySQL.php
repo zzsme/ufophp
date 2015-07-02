@@ -17,6 +17,10 @@ class MySQL implements IDatabase {
         return $res;
     }
 
+    function execute($sql) {
+        return $this->query($sql);
+    }
+
     function close() {
         mysql_close($this->conn);
     }

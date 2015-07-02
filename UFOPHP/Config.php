@@ -23,7 +23,7 @@ class Config implements \ArrayAccess {
     }
 
     function offsetSet($key, $value) {
-        throw new Exception('cannot write config file.');
+        throw new \Exception('cannot write config file.');
         //$this->configs[$key] = $value;
     }
 

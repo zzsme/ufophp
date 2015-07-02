@@ -5,7 +5,7 @@ class Model {
     protected $observers = array();
 
     function __construct() {
-        $name = strtolower(str_replace("App\Model\\", '', get_class($this)));
+        $name = strtolower(str_replace("App\\Model\\", '', get_class($this)));
         if (!empty(Application::getInstance()->config['model'][$name]['observer'])) {
             $observers = Application::getInstance()->config['model'][$name]['observer'];
             foreach ($observers as $class) {

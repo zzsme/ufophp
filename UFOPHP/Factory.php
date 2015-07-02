@@ -3,7 +3,7 @@ namespace UFOPHP;
 /**
  * 工厂模式
  * Class Factory
- * @package 
+ * @package
  */
 class Factory {
     protected static $proxy;
@@ -29,7 +29,7 @@ class Factory {
         }
         $db = Register::get($key);
         if (!$db) {
-            $db = new Database\MySQLi();
+            $db = new Database\MySQL();
             $db->connect($db_conf['host'], $db_conf['user'], $db_conf['password'], $db_conf['dbname']);
             Register::set($key, $db);
         }
@@ -48,10 +48,10 @@ class Factory {
     }
 
     static function getModel($name){
-        $key = 'app_model_'.$name;
+        $key = 'app_model_'.strtolower($name);
         $model = Register::get($key);
         if (!$model) {
-            $class = '\\App\\Model\\'.ucwords($name);
+            $class = '\\App\\Model\\'.ucfirst($name);
             $model = new $class;
             Register::set($key, $model);
         }
