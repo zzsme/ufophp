@@ -10,4 +10,14 @@ interface IDatabase {
     function query($sql);
 
     function close();
+
+    function select($condition);
+
+    function save($data);
+
+    function add($data);
+
+    function update($data);
+
+    function delete($condition);
 }

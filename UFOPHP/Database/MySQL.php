@@ -5,8 +5,10 @@ use UFOPHP\IDatabase;
 
 class MySQL implements IDatabase {
     protected $conn;
-
-    function connect($host, $user, $passwd, $dbname) {
+    protected $table_name;
+    protected $db;
+    protected $pk;
+    protected function connect($host, $user, $passwd, $dbname) {
         $conn = mysql_connect($host, $user, $passwd);
         mysql_select_db($dbname, $conn);
         $this->conn = $conn;
@@ -24,4 +26,25 @@ class MySQL implements IDatabase {
     function close() {
         mysql_close($this->conn);
     }
+
+    function select($condition) {
+        
+    }
+    function save() {
+
+    }
+
+    function add(){
+
+    }
+
+    function update(){
+
+    }
+
+    function delete(){
+
+    }
+
+
 }
